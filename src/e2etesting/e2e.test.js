@@ -24,15 +24,32 @@ describe('Todolist app test', () => {
 describe('Should be able add buy some milk in todolist', () => {
   test('It allow me to write text in textbox', async () => {
     const todoText = 'buy some milk';
-    await page.goto(`${appUrlBase}/`)
-    await page.waitForSelector('h1')
     await page.click('#form-input__todotext');
     await page.type('#form-input__todotext', todoText);
     
     const text = await page.$eval("#form-input__todotext", (input) => {
       return input.getAttribute("value")
     });
-    expect(text).toEqual(todoText)  })
+    expect(text).toEqual(todoText)  
+  })
+
+  test('It allow me to save todo item', async () => {
+    await page.goto(`${appUrlBase}/`)
+    const todoText = 'buy some milk';
+    await page.click('#form-input__todotext');
+    await page.type('#form-input__todotext', todoText);
+    await page.click(".btn-add-todo");
+
+    await page.waitForSelector(".todo-items");
+    const todo = await page.evaluate(() => {
+      return [...document.querySelectorAll(".todo-items")].map(
+        (el) => el.innerText
+      );
+    });
+    console.log(todo);
+    expect(todo[0]).toEqual(todoText);
+  })
+
 })
 
 afterAll(() => browser.close());
