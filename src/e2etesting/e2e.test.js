@@ -46,7 +46,6 @@ describe('Should be able add buy some milk in todolist', () => {
         (el) => el.innerText
       );
     });
-    console.log(todo);
     expect(todo[0]).toEqual(todoText);
   })
 
