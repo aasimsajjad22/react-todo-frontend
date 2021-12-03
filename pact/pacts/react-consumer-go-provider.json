@@ -1,0 +1,38 @@
+{
+    "consumer": {
+        "name": "react-consumer"
+    },
+    "provider": {
+        "name": "go-provider"
+    },
+    "interactions": [
+        {
+            "description": "A request to create todo item",
+            "request": {
+            "method": "POST",
+            "path": "/todo",
+            "headers": {
+                "Accept": "application/json"
+        },
+            "body": "Test Description"
+        },
+            "response": {
+            "status": 201,
+            "headers": {
+                "Content-Type": "application/json"
+        },
+            "body": {
+                "description": "Test Description"
+            }
+        },
+        "metadata": null
+    
+        }
+    ],
+    "metadata": {
+        "pactSpecification": {
+          "version": "2.0.0"
+        }
+      }
+}
+    
