@@ -8,6 +8,7 @@ let page
 beforeAll(async () => {
   browser = await puppeteer.launch({})
   page = await browser.newPage()
+  
 })
 
 describe('Todolist app test', () => {

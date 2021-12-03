@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 const AddTodo = ({ submitTodo }) => {
     const [formData, setFormData] = useState({
-        todoText: '',
-        todos: []
+        todoText: ''
     });
 
     const onSubmit = e => {
