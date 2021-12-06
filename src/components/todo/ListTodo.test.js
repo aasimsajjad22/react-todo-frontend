@@ -8,20 +8,18 @@ import ListTodo from './ListTodo';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('TodoList component', () => {
-  
-    const props = 
-        {
-          id: 1,
-          description: 'Testing todo',
-        }
-  
-    const component = shallow(<ListTodo todo={props} />);
-  
-    it('Should render successfully', () => {
-      expect(component.exists()).toEqual(true);
-    });
-  
-    it('Should display a todo when passed in as a prop', () => {
-      expect(component.find('.todo__desc').text()).toEqual(description);
-    });
+  const props = {
+    id: 1,
+    description: 'Testing todo',
+  }
+
+  const component = shallow(<ListTodo todo={props} />);
+
+  it('Should render successfully', () => {
+    expect(component.exists()).toEqual(true);
   });
+
+  it('Should display a todo when passed in as a prop', () => {
+    expect(component.find('.todo__desc').text()).toEqual(props.description);
+  });
+});

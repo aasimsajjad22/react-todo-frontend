@@ -9,9 +9,7 @@ export const App = ({submitTodo, todoListApp: {todos} }) => (
     <div className="App">
       <h1>Todo App</h1>
 
-      <AddTodo 
-        submitTodo={submitTodo}
-      />
+      <AddTodo submitTodo={submitTodo} />
       
       <ul className="todo-list">
         {todos && todos.map(todo => (
