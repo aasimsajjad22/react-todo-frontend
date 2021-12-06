@@ -1,6 +1,6 @@
 import { pactWith } from 'jest-pact';
 
-import { submitTodoApiCall } from '../actions/todo';
+import { getAllTodoApiCall, submitTodoApiCall } from '../actions/todo';
 
 pactWith({ consumer: 'react-consumer', provider: 'go-provider' }, provider => {
 
@@ -18,4 +18,25 @@ pactWith({ consumer: 'react-consumer', provider: 'go-provider' }, provider => {
             })
         });
     });
+
+    
 });
+
+
+pactWith({ consumer: 'react-consumer', provider: 'go-provider' }, provider => {
+    describe('get todo items', () => {
+        const feedback = "Test Description";
+        const expectedResult = {
+            description: 'Test Description'
+        };
+
+        it('should get list of todos from database and add to listitems', async() => {
+            submitTodoApiCall(feedback);
+            getAllTodoApiCall(feedback).then((result) => {
+                expect(result[0].description).toEqual(expectedResult.description);
+            }).then(() => {
+                provider.verify()
+            })
+        });
+    });
+})

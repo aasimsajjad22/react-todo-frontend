@@ -1,7 +1,7 @@
 const path = require("path");
 const Pact = require("@pact-foundation/pact").Pact;
 
-global.port = 8082;
+global.port = 1234;
 global.provider = new Pact({
     port: global.port,
     cors: true,
@@ -13,5 +13,5 @@ global.provider = new Pact({
     consumer: "react-consumer",
     provider: "go-provider",
     host: "localhost",
-    timeout: 1000
+    timeout: 2000
 });

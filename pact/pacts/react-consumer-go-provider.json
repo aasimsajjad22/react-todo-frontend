@@ -13,20 +13,36 @@
             "path": "/todo",
             "headers": {
                 "Accept": "application/json"
-        },
+            },
             "body": "Test Description"
-        },
+            },
             "response": {
-            "status": 201,
-            "headers": {
-                "Content-Type": "application/json"
-        },
-            "body": {
-                "description": "Test Description"
-            }
-        },
-        "metadata": null
-    
+                "status": 201,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": {
+                    "description": "Test Description"
+                }
+            },
+            "metadata": null
+        },{
+            "description": "A request to get todo item",
+            "request": {
+                "method": "GET",
+                "path": "/todos",
+                "headers": {
+                    "Accept": "application/json"
+                }
+            },
+            "response": {
+                "status": 200,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": {}
+            },
+            "metadata": null
         }
     ],
     "metadata": {

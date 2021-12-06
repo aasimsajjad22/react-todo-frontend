@@ -8,7 +8,7 @@ import ListTodo from "./components/todo/ListTodo";
 export const App = ({submitTodo, todoListApp: {todos}, getAllTodo }) => {
   useEffect(() => {
     getAllTodo()
-  })
+  }, [getAllTodo])
   return (
     <div className="App">
       <h1>Todo App</h1>

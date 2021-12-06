@@ -43,7 +43,7 @@ export const submitTodoApiCall = async(todo) => {
 
 export const getAllTodoApiCall = async() => {
     try {
-        const res = await axios.get(baseUrl+'/todo');
+        const res = await axios.get(baseUrl+'/todos');
         return res.data
     } catch(err) {
         console.log(err)
