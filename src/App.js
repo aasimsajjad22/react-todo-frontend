@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import AddTodo from "./components/todo/AddTodo";
-import { submitTodo } from "./actions/todo";
+import { getAllTodo, submitTodo } from "./actions/todo";
 import ListTodo from "./components/todo/ListTodo";
 
-export const App = ({submitTodo, todoListApp: {todos} }) => (
+export const App = ({submitTodo, todoListApp: {todos}, getAllTodo }) => {
+  useEffect(() => {
+    getAllTodo()
+  })
+  return (
     <div className="App">
       <h1>Todo App</h1>
 
@@ -17,10 +21,12 @@ export const App = ({submitTodo, todoListApp: {todos} }) => (
         ))}
       </ul>
     </div>
-);
+  )
+};
 
 App.propTypes = {
   submitTodo: PropTypes.func.isRequired,
+  getAllTodo: PropTypes.func.isRequired,
   todoListApp: PropTypes.object.isRequired
 }
 
@@ -28,4 +34,4 @@ const mapStateToProps = state => ({
   todoListApp: state.todoListApp
 });
 
-export default connect(mapStateToProps, {submitTodo})(App);
+export default connect(mapStateToProps, {submitTodo, getAllTodo})(App);

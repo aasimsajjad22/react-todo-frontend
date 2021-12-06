@@ -13,6 +13,12 @@ export const reducer = (state = initialState, action) => {
             todos: [payload, ...state.todos]
             
         };
+        case types.GETALL_TODO:        
+        return {
+            ...state,
+            todos: payload
+            
+        };
     default:
       return state;
     }

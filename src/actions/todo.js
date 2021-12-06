@@ -14,6 +14,17 @@ export const submitTodo = (todo) => dispatch => {
     });
 }
 
+export const getAllTodo = () => dispatch => {
+    getAllTodoApiCall().then((data) => {
+        if(data) {
+            dispatch({
+                type: types.GETALL_TODO,
+                payload: data
+            });
+        }
+    });
+}
+
 export const submitTodoApiCall = async(todo) => {
     const config = {
         headers: {
@@ -23,6 +34,16 @@ export const submitTodoApiCall = async(todo) => {
     const body = JSON.stringify({ description: todo });
     try {
         const res = await axios.post(baseUrl+'/todo', body, config);
+        return res.data
+    } catch(err) {
+        console.log(err)
+    }
+    return null;
+}
+
+export const getAllTodoApiCall = async() => {
+    try {
+        const res = await axios.get(baseUrl+'/todo');
         return res.data
     } catch(err) {
         console.log(err)
