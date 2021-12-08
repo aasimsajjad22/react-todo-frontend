@@ -1,5 +1,6 @@
-## go-todo-frontend [![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://app.circleci.com/pipelines/github/aasimsajjad22/react-todo-frontend/)
-The frontend app has been created with ReactJs following ATDD Approach
+## react-todo-frontend [![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://app.circleci.com/pipelines/github/aasimsajjad22/react-todo-frontend/)
+The frontend app has been created with ReactJs following ATDD Approach <br>
+You can find backend API integrate with this app here : [go-todo-backend](https://github.com/aasimsajjad22/go-todo-backend)
 ### How to run
 ##### - Run through Docker
 - If you have docker installed then simply run `docker-compose -f docker-compose.dev.yml up` to setup and run the application in docker environment.
