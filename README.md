@@ -1,4 +1,4 @@
-## go-todo-frontend
+## go-todo-frontend [![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://app.circleci.com/pipelines/github/aasimsajjad22/react-todo-frontend/)
 The frontend app has been created with ReactJs following ATDD Approach
 ### How to run
 ##### - Run through Docker
