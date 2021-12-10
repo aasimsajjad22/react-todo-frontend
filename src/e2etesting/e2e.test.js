@@ -40,10 +40,10 @@ describe('Should be able add buy some milk in todolist', () => {
     await page.click('#form-input__todotext');
     await page.type('#form-input__todotext', todoText);
     await page.click(".btn-add-todo");
-
-    await page.waitForSelector(".todo-items");
+    await page.goto(`${appUrlBase}/`)
+    await page.waitForSelector(".todo-list");
     const todo = await page.evaluate(() => {
-      return [...document.querySelectorAll(".todo-items")].map(
+      return [...document.querySelectorAll(".todo__desc")].map(
         (el) => el.innerText
       );
     });
